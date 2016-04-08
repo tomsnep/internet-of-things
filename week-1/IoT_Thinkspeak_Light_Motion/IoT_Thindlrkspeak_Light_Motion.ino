@@ -17,8 +17,10 @@ long myChannelNumber = 106657;
 const char * myWriteAPIKey = "GALN6Y5ZB7SS9EMD"; 
 
 // Setup
+// the naming could be better to make it more understandable for other people
 #define pir D0
 #define led LED_BUILTIN
+#define ldr A0
 
 int pirState = LOW;
 int val = 0;
@@ -32,8 +34,8 @@ void setup() {
 }
 
 void loop() {
-  int motion = digitalRead(D0);
-  int light = analogRead(A0);
+  int motion = digitalRead(pir); // already defined D0 so you're better off using the D0 you've defined in pir
+  int light = analogRead(ldr); // could do the same with analog
 
   ThingSpeak.setField(1,light);
   ThingSpeak.setField(2, motion);
