@@ -4,7 +4,7 @@
 The goal of this project is to make your goldfishes in the pond save from heron's. My grandma has a large pond and suffers from the presence of herons that eat her fish. Large goldfishes can be expensive so she tries everything to keep her fishes alive. Her husband already made a net to place over the pond. But since he passed away, she cannot manage to install the net on her own. Besides that, the net is ruining the beautifull view of the garden. 
 
 ![the pond](img/pond.jpeg)  
-The pond
+The pond of my grandma
 
 With this manual you can make your own Heron Detector. It's not only for heron's, you can also use the detector for cats or other animals wich are undesirable. 
 
@@ -33,7 +33,7 @@ select this block:
 click install  
 
 ###Step 3: Configure settings
-Configure your settings like this:
+Configure your settings like this:  
 ![configuration settings](img/prestep4.png)
 
 Now you're all set and ready to go!
@@ -43,9 +43,9 @@ Now you're all set and ready to go!
 ## Step 1: The Pir sensor
 
 This is the pir sensor:
-![pir sensor](img/step1-1.jpg)
+![pir sensor](img/step1-1.JPG)  
 The pir sensor has 3 connections pins. VCC, OUT and GND. Connect the VCC to the Vin on your ESP, the OUT to the desired Digital output, i use D1, and the GND to the ground. 
-![pir sensor](img/step1-2.jpg)
+![pir sensor](img/step1-2.JPG)  
 The pir sensor gives a digital in/output, therefore we connect it to the D pins. When the pir sensor detects motion it returns a 1, if there is no motion it returns 0. 
 
 To detect motion we use this code:
@@ -95,7 +95,7 @@ void loop() {
 We need something to scare the heron's away. We use light and sound to shoo them. Ofcourse this small buzzer used in this tutorial won't scare a big big heron away. But let's pretend this little buzzer is a 500 Watt speaker which blows the leaves of the tree's.
 
 Connect the buzzer and the led to desired D pins. I used D3 for the buzzer and D4 for the led.
-![buzzer & led](img/step2.jpg)
+![buzzer & led](img/step2.JPG)  
 
 For the sound i used some code from the arduino playground, you can find this [here](https://www.arduino.cc/en/Tutorial/PlayMelody). To play the sound i made a new function called "playTone". The sound and light are triggered within the powerOn function. 
 
@@ -222,10 +222,10 @@ void loop() {
 
 ```
 
-Step 3: WiFi Connection
+##Step 3: WiFi Connection
 
 To make a user interface where you can control the detector and see the history we need to connect the ESP with the internet. You need a WiFi network to connect to or you can use a hotspot from your smartphone. At the begin of this tutorial you installed the esp8266 package. With this package comes a few librarys. For the WiFi connection we need the ESP8266WiFi library, you can find this at sketch > include library > ESP8266WiFi
-![img/step3.png]
+![ESP8266WiFi](img/step3.png)
 
 You need to include this library at the beginning of your code:
 
@@ -625,7 +625,7 @@ void loop() {
 }
 ```
 
-The code on the server can look something like this, i wrapped al the code in one file right now. Included the PHP and Javascript
+The code on the server can look something like this, i wrapped al the code in one file right now. Included the PHP and Javascript:
 ```javascript
 <?php
     $motion = $_POST['motion'];
