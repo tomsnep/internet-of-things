@@ -3,7 +3,7 @@
 
 The goal of this project is to make your goldfishes in the pond save from heron's. My grandma has a large pond and suffers from the presence of herons that eat her fish. Large goldfishes can be expensive so she tries everything to keep her fishes alive. Her husband already made a net to place over the pond. But since he passed away, she cannot manage to install the net on her own. Besides that, the net is ruining the beautifull view of the garden. 
 
-![the pond](/img/pond.jpeg)  
+![the pond](img/pond.jpeg)  
 The pond
 
 With this manual you can make your own Heron Detector. It's not only for heron's, you can also use the detector for cats or other animals wich are undesirable. 
@@ -21,20 +21,20 @@ Before we start we need to configure our Arduino IDE for the NodeMCU:
 
 ###Step 1: add the [library for the NodeMCU](http://arduino.esp8266.com/versions/2.2.0/package_esp8266com_index.json)
 
-![preferences](/img/prestep1.png)
-![add library](/img/prestep2.png)
+![preferences](img/prestep1.png)
+![add library](img/prestep2.png)
 
 ###Step 2: install esp8266 package
 
 Go to > Tools > Board > Boardmanager
 Search for: 'esp'  
 select this block:  
-![esp8266 package](/img/prestep3.png)  
+![esp8266 package](img/prestep3.png)  
 click install  
 
 ###Step 3: Configure settings
 Configure your settings like this:
-![configuration settings](/img/prestep4.png)
+![configuration settings](img/prestep4.png)
 
 Now you're all set and ready to go!
 
@@ -43,14 +43,14 @@ Now you're all set and ready to go!
 ## Step 1: The Pir sensor
 
 This is the pir sensor:
-![pir sensor](/img/step1-1.jpg)
+![pir sensor](img/step1-1.jpg)
 The pir sensor has 3 connections pins. VCC, OUT and GND. Connect the VCC to the Vin on your ESP, the OUT to the desired Digital output, i use D1, and the GND to the ground. 
-![pir sensor](/img/step1-2.jpg)
+![pir sensor](img/step1-2.jpg)
 The pir sensor gives a digital in/output, therefore we connect it to the D pins. When the pir sensor detects motion it returns a 1, if there is no motion it returns 0. 
 
 To detect motion we use this code:
 
-```
+```javascript
 // Declarations  
 int pir = D1;
 int pirState = LOW;
@@ -95,11 +95,11 @@ void loop() {
 We need something to scare the heron's away. We use light and sound to shoo them. Ofcourse this small buzzer used in this tutorial won't scare a big big heron away. But let's pretend this little buzzer is a 500 Watt speaker which blows the leaves of the tree's.
 
 Connect the buzzer and the led to desired D pins. I used D3 for the buzzer and D4 for the led.
-![buzzer & led](/img/step2.jpg)
+![buzzer & led](img/step2.jpg)
 
 For the sound i used some code from the arduino playground, you can find this [here](https://www.arduino.cc/en/Tutorial/PlayMelody). To play the sound i made a new function called "playTone". The sound and light are triggered within the powerOn function. 
 
-```
+```javascript
 // Declarations  
 int pir = D1;
 int led = D4;
@@ -229,14 +229,14 @@ To make a user interface where you can control the detector and see the history 
 
 You need to include this library at the beginning of your code:
 
-```
+```javascript
 // Include 
 #include <ESP8266WiFi.h>
 
 ```
 
 Set the settings for the WiFi connection:
-```
+```javascript
 const char* ssid     = "***********"; // Fill in your own SSID.
 const char* password = "***********"; // Fill in your password.
 
@@ -273,7 +273,7 @@ To see the history of the detected motion we need to send the data to a .txt fil
 With a POST request the data will be send to the .txt file.
 
 The arduino code:  
-```
+```javascript
 
 void sendMotionValue(int value){
 
@@ -297,8 +297,7 @@ void sendMotionValue(int value){
 ```
 
 On the server we have a file called motion.php. This piece of code places the date and time in a text file when motion is detected:
-```
-
+```javascript
 <?php
     $motion = $_POST['motion'];
     
@@ -324,7 +323,7 @@ At some points, you don't want the detector to make noise and ligth. For example
 
 In the dashboard we make two buttons (on and off). The value of these buttons is stored in a json file, switch.json for example. The NodeMCU does a get request to this switch.json to read the state. To read json we need to include the library ArduinoJson, you can find this library in sketch > include library > manage libraries > search ArduinoJson. Everytime the NodeMCU connects to the internet, it reads the json file:
 
-```
+```javascript
 //Include
 #include <ArduinoJson.h>
 
@@ -397,7 +396,7 @@ When the value is "on" the function powerOn() is fired wich we already have decl
 ##Final result
 
 So with all these steps together your Arduino code should look something like this:
-```
+```javascript
 // Include 
 #include <ESP8266WiFi.h>
 #include <ArduinoJson.h>
@@ -627,8 +626,7 @@ void loop() {
 ```
 
 The code on the server can look something like this, i wrapped al the code in one file right now. Included the PHP and Javascript
-
-```
+```javascript
 <?php
     $motion = $_POST['motion'];
     
