@@ -826,6 +826,6 @@ The code on the server can look something like this, i wrapped al the code in on
 ```
 
 ##The end
-Thankyou for reading this tutorial. I'll hope you enjoyed reading it. You can see the dashboard in live action on this [url](www.tomsnepvangers.com/IoT).
+Thankyou for reading this tutorial. I'll hope you enjoyed reading it. You can see the dashboard in live action on this [url](http://www.tomsnepvangers.com/IoT).
 Cheers!
 
