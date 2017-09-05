@@ -10,6 +10,7 @@ EIoTCloudRestApi eiotcloud;
 char ssid[] = "xxxxxx";
 char pass[] = "xxxxxx";
 
+//Casper - deze waarde gebruik je nergens?
 int status = WL_IDLE_STATUS;
 WiFiClient  client;
 
@@ -20,6 +21,7 @@ const char * myWriteAPIKey = "GALN6Y5ZB7SS9EMD";
 #define pir D0
 #define led LED_BUILTIN
 
+//Casper - geen idee wat deze dingen zijn, probeer duidelijker te zijn met je namen
 int pirState = LOW;
 int val = 0;
 int light;
@@ -32,6 +34,7 @@ void setup() {
 }
 
 void loop() {
+  //Casper - zet de pinCodes in een int, dan heb je een abstractie laag en als je iets verandert in je setup kan je het boven aan de file veranderen en hoef je het niet op meerdere plekken te veranderen en nog meer dingen met veranderen, ik ben nu gewoon de zin nog veel langer aan het maken, want deze zin slaat nergers meer op
   int motion = digitalRead(D0);
   int light = analogRead(A0);
 
